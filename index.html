@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/picnic">
+  <link rel="stylesheet" href="style.css">
+  <title>AGLSTM</title>
+</head>
+
+<body>
+  <div>
+    <h1>Aesop Generator by Long Short Term Memory (LSTM) with
+      <a href="https://ml5js.org/">ml5.js</a>
+    </h1>
+  </div>
+  <hr>
+  <label>
+    คำขึ้นต้นเนื้อเรื่อง (Seed):
+    <input type="text" id="text" onkeydown="keyCapture(event)" placeholder="กาลครั้งหนึ่งนานมาแล้ว... (พิมพ์แล้วกด Enter &crarr;)">
+    <div class="flex">
+      <div>
+        <button class="block" onclick="regen('กาลครั้งหนึ่งนานมาแล้ว')">กาลครั้งหนึ่งนานมาแล้ว</button>
+      </div>
+      <div>
+        <button class="block" onclick="regen('กาลครั้งหนึ่ง')">กาลครั้งหนึ่ง</button>
+      </div>
+      <div>
+        <button class="block" onclick="regen('ครั้งหนึ่ง')">ครั้งหนึ่ง</button>
+      </div>
+      <div>
+        <button class="block" onclick="regen('ณ ')">ณ</button>
+      </div>
+    </div>
+  </label>
+  <div class="flex three">
+    <label>
+      ความยาว (Length):
+      <input type="number" id="storyLength" min="20" max="1000" value="500">
+    </label>
+    <label>
+      ความจริงจัง (Temperature):
+      <span id="storyStyle"></span>
+      <input type="range" oninput="updateStatus()" id="storyTemp" min="0" max="1" value="1" step="0.1">
+    </label>
+    <label>
+      <input type="checkbox" id="overfitModel">
+      <span class="checkable">Overfit Mode</span>
+    </label>
+  </div>
+  <hr>
+  <div class="card" id="output"></div>
+  <div class="cf">
+    <span class="label warning" id="status">Model Loading...</span>
+  </div>
+  <hr>
+  <div class="flex two">
+    <ul>
+      <b>Normal Model</b>
+      <li>นิทาน: 207 เรื่อง (278 KB)</li>
+      <li>RNN hidden state: 256</li>
+      <li>Layers in the RNN: 2</li>
+      <li>Sequence length: 64</li>
+      <li>Minibatch: 32</li>
+      <li>Epochs: 100</li>
+      <li>Train loss: 0.490</li>
+    </ul>
+    <ul>
+      <b>Overfit Model</b>
+      <li>จำนวนนิทาน: 207 เรื่อง ทำซ้ำ 7 ครั้ง (2.17 MB)</li>
+      <li>RNN hidden state: 256</li>
+      <li>Layers in the RNN: 2</li>
+      <li>Sequence length: 64</li>
+      <li>Minibatch: 32</li>
+      <li>Epochs: 100</li>
+      <li>Train loss: 0.002</li>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
