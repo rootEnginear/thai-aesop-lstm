@@ -19,3 +19,6 @@
 - Minibatch: 32
 - Epochs: 100
 - Train loss: 0.002
+
+***
+เครดิตนิทานทั้งหมด: [กัลยาณมิตร](http://www.kalyanamitra.org/th/Aesop_list.php)
