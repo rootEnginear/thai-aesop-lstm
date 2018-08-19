@@ -19,19 +19,19 @@
   <hr>
   <label>
     คำขึ้นต้นเนื้อเรื่อง (Seed):
-    <input type="text" id="text" onkeydown="keyCapture(event)" placeholder="กาลครั้งหนึ่งนานมาแล้ว... (พิมพ์แล้วกด Enter &crarr;)">
+    <input disabled type="text" id="text" onkeydown="keyCapture(event)" placeholder="กาลครั้งหนึ่งนานมาแล้ว... (พิมพ์แล้วกด Enter &crarr;)">
     <div class="flex">
       <div>
-        <button class="block" onclick="regen('กาลครั้งหนึ่งนานมาแล้ว')">กาลครั้งหนึ่งนานมาแล้ว</button>
+        <button id="s0" disabled class="block" onclick="regen('กาลครั้งหนึ่งนานมาแล้ว')">กาลครั้งหนึ่งนานมาแล้ว</button>
       </div>
       <div>
-        <button class="block" onclick="regen('กาลครั้งหนึ่ง')">กาลครั้งหนึ่ง</button>
+        <button id="s1" disabled class="block" onclick="regen('กาลครั้งหนึ่ง')">กาลครั้งหนึ่ง</button>
       </div>
       <div>
-        <button class="block" onclick="regen('ครั้งหนึ่ง')">ครั้งหนึ่ง</button>
+        <button id="s2" disabled class="block" onclick="regen('ครั้งหนึ่ง')">ครั้งหนึ่ง</button>
       </div>
       <div>
-        <button class="block" onclick="regen('ณ ')">ณ</button>
+        <button id="s3" disabled class="block" onclick="regen('ณ ')">ณ</button>
       </div>
     </div>
   </label>

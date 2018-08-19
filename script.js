@@ -9,6 +9,10 @@ var $ = el => {
 
 function modelLoaded() {
   $("#text").disabled = false;
+  $("#s0").disabled = false;
+  $("#s1").disabled = false;
+  $("#s2").disabled = false;
+  $("#s3").disabled = false;
   $("#status").classList.add("success");
   $("#status").classList.remove("warning");
   $("#status").innerText = "Model Loaded!";
@@ -25,16 +29,20 @@ updateStatus();
 
 function regen(customtext = null) {
   var inp = customtext || $("#text").value.toLowerCase();
+
   $("#status").classList.remove("success");
   $("#status").classList.remove("error");
   $("#status").classList.add("warning");
   $("#status").innerText = "Thinking...";
+
   var processThinking = function() {
+
     var data = {
       seed: inp,
-      temperature: 0.5,
+      temperature: +$("#storyTemp").value,
       length: +$("#storyLength").value
     };
+    
     var cb = function(err, results) {
       if (err) {
         $("#status").classList.add("error");
